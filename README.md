@@ -33,3 +33,44 @@ Here are some additional details about the Spring AI library:
 * The library is still under development, but it has already been used in a variety of production applications.
 * The library is open source and available on GitHub.
 * The library documentation is available on the Spring website.
+
+# Project Setup
+
+When configuring your Maven pom.xml for the Spring AI project, add the specified repository to access its dependencies. As Spring AI is currently in the experimental phase, only snapshot versions are available. Here is how you should include this in your pom.xml:
+
+````
+<repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
+````
+
+In this project, I have selected OpenAI as the primary interface. However, it's important to note that Spring AI offers a variety of different ChatClient interfaces.
+
+* OpenAI
+* Azure OpenAI
+* Hugging Face
+* Ollama
+
+OpenAI Library
+```
+<dependency>
+  <groupId>org.springframework.experimental.ai</groupId>
+  <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
+  <version>0.7.1-SNAPSHOT</version>
+</dependency>
+```
+
+The most recent version of this library is 0.8.0-SNAPSHOT. We attempted to use this version, but currently, we only have access to the 0.7.1-SNAPSHOT version. As our studies progress, we will try to update to the latest version.
+
+After all setup, you need to create your account and API key in one of the chosen clients. In my case [OpenAI Platform](https://platform.openai.com/docs/overview)
+
+This was just the first study with Generative AI and the Spring AI library. We will develop some other features using the library, and I hope you follow my journey with Spring and AI.
+
+Part of this doc was generated with SpringAI and Model ChatGPT 3.5.
