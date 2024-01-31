@@ -1,16 +1,11 @@
-### Reference Documentation
+# Spring AI
 
-For further reference, please consider the following sections:
 
-* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
-* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/3.2.2/maven-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/3.2.2/maven-plugin/reference/html/#build-image)
-* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/index.html#using.devtools)
-* [Spring Web](https://docs.spring.io/spring-boot/docs/3.2.2/reference/htmlsingle/index.html#web)
 * [Spring AI Docs](https://docs.spring.io/spring-ai/reference/)
+
 * [Spring AI Project](https://github.com/spring-projects/spring-ai)
 
-# Spring AI
+
 
 The Spring AI library is a set of APIs and components that allow Java developers to integrate artificial intelligence (AI) into their Spring Boot applications. The library is based on the Spring Framework and provides a unified API to access a variety of AI technologies, including machine learning, deep learning, natural language processing, and computer vision.
 
@@ -38,7 +33,7 @@ Here are some additional details about the Spring AI library:
 
 When configuring your Maven pom.xml for the Spring AI project, add the specified repository to access its dependencies. As Spring AI is currently in the experimental phase, only snapshot versions are available. Here is how you should include this in your pom.xml:
 
-````
+```
 <repositories>
         <repository>
             <id>spring-snapshots</id>
@@ -49,7 +44,7 @@ When configuring your Maven pom.xml for the Spring AI project, add the specified
             </releases>
         </repository>
     </repositories>
-````
+```
 
 In this project, I have selected OpenAI as the primary interface. However, it's important to note that Spring AI offers a variety of different ChatClient interfaces.
 
@@ -74,3 +69,5 @@ After all setup, you need to create your account and API key in one of the chose
 This was just the first study with Generative AI and the Spring AI library. We will develop some other features using the library, and I hope you follow my journey with Spring and AI.
 
 Part of this doc was generated with SpringAI and Model ChatGPT 3.5.
+
+![Spring IA API response](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/yi9dfqbsz24sihqlc00d.png)
