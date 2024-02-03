@@ -1,0 +1,16 @@
+version: '3'
+services:
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - "7474:7474" # HTTP
+      - "7687:7687" # Bolt
+    environment:
+      NEO4J_AUTH: neo4j/test
+      # NEO4J_dbms_memory_pagecache_size: 1G
+      # NEO4J_dbms_memory_heap_maxSize: 512M
+    volumes:
+      - $HOME/neo4j/data:/data
+      - $HOME/neo4j/logs:/logs
+      - $HOME/neo4j/import:/var/lib/neo4j/import
+      - $HOME/neo4j/plugins:/plugins
