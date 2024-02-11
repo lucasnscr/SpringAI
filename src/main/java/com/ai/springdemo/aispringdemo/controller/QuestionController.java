@@ -23,7 +23,7 @@ public class QuestionController {
     }
 
     @GetMapping("/question")
-    public Map completion(@RequestParam(value = "question", defaultValue = "what is the best technologies trend") String question,
+    public Map completion(@RequestParam(value = "question", defaultValue = "List three tools to trial") String question,
                           @RequestParam(value = "prompstuff", defaultValue = "true") boolean prompstuff) {
         String answer = this.questionService.question(question, prompstuff);
         Map map = new LinkedHashMap();
