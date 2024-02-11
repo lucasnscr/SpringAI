@@ -1,16 +1,31 @@
-version: '3'
+version: '3.7'
 services:
-  neo4j:
-    image: neo4j:latest
-    ports:
-      - "7474:7474" # HTTP
-      - "7687:7687" # Bolt
+  postgres:
+    image: ankane/pgvector:v0.5.0
+    restart: always
     environment:
-      NEO4J_AUTH: neo4j/test
-      # NEO4J_dbms_memory_pagecache_size: 1G
-      # NEO4J_dbms_memory_heap_maxSize: 512M
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=vector_db
+      - PGPASSWORD=admin
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    ports:
+      - '5433:5432'
+    healthcheck:
+      test: "pg_isready -U postgres -d vector_db"
+      interval: 2s
+      timeout: 20s
+      retries: 10
+  pgadmin:
+    container_name: pgadmin_container
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
     volumes:
-      - $HOME/neo4j/data:/data
-      - $HOME/neo4j/logs:/logs
-      - $HOME/neo4j/import:/var/lib/neo4j/import
-      - $HOME/neo4j/plugins:/plugins
+      - ./servers.json:/pgadmin4/servers.json
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
