@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Delete Embeddings",
+			"name": "delete-embbeding",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -27,7 +27,7 @@
 			"response": []
 		},
 		{
-			"name": "LoadDocument",
+			"name": "load-data",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -67,7 +67,7 @@
 			"response": []
 		},
 		{
-			"name": "Query Model Copy",
+			"name": "question",
 			"request": {
 				"method": "GET",
 				"header": [],
