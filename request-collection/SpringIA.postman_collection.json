@@ -72,7 +72,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/question?question=what effect have the layoffs had on the tech industry",
+					"raw": "http://localhost:8080/question?question=List three best tools for trial",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -84,7 +84,7 @@
 					"query": [
 						{
 							"key": "question",
-							"value": "what effect have the layoffs had on the tech industry"
+							"value": "List three best tools for trial"
 						}
 					]
 				}
