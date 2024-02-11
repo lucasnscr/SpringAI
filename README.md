@@ -56,13 +56,29 @@ In this project, I have selected OpenAI as the primary interface. However, it's 
 OpenAI Library
 ```
 <dependency>
-  <groupId>org.springframework.experimental.ai</groupId>
+  <groupId>org.springframework.ai</groupId>
   <artifactId>spring-ai-openai-spring-boot-starter</artifactId>
-  <version>0.7.1-SNAPSHOT</version>
+  <version>${spring-ai.version}</version>
+</dependency>
+```
+PDF Document Reader (ETL)
+```
+<dependency>
+  <groupId>org.springframework.ai</groupId>
+  <artifactId>spring-ai-pdf-document-reader</artifactId>
+  <version>${spring-ai.version}</version>
+</dependency>
+```
+Vector Database(PGvector) 
+```
+<dependency>
+  <groupId>org.springframework.ai</groupId>
+  <artifactId>spring-ai-pgvector-store</artifactId>
+  <version>${spring-ai.version}</version>
 </dependency>
 ```
 
-The most recent version of this library is 0.8.0-SNAPSHOT. We attempted to use this version, but currently, we only have access to the 0.7.1-SNAPSHOT version. As our studies progress, we will try to update to the latest version.
+The most recent version of this library is 0.8.0-SNAPSHOT.
 
 After all setup, you need to create your account and API key in one of the chosen clients. In my case [OpenAI Platform](https://platform.openai.com/docs/overview)
 
