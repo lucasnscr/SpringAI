@@ -17,13 +17,13 @@ public class QuestionController {
         this.questionService = questionService;
     }
 
-    @PostMapping("/question")
+    @PostMapping("/simple-question")
     public ResponseEntity<String> getQuestion(@RequestBody String question){
         return ResponseEntity.ok().body(questionService.simpleQuestion(question));
     }
 
-    @GetMapping
-    public Map completion(@RequestParam(value = "question", defaultValue = "What is the best trend technology of 2023/2024?") String question,
+    @GetMapping("/question")
+    public Map completion(@RequestParam(value = "question", defaultValue = "what is the best technologies trend") String question,
                           @RequestParam(value = "prompstuff", defaultValue = "true") boolean prompstuff) {
         String answer = this.questionService.question(question, prompstuff);
         Map map = new LinkedHashMap();

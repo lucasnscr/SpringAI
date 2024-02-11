@@ -8,14 +8,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.retry.annotation.EnableRetry;
 
-
 @Configuration
 @EnableRetry
 public class RagConfig {
 
     @Bean
     public VectorStore vectorStore(EmbeddingClient embeddingClient, JdbcTemplate jdbcTemplate) {
-        return new PgVectorStore(jdbcTemplate, embeddingClient);
+        return new PgVectorStore(jdbcTemplate, embeddingClient, 4);
     }
 
 }

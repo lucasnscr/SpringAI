@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.ChatClient;
 import org.springframework.ai.chat.ChatResponse;
+import org.springframework.ai.chat.Generation;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.messages.UserMessage;
 import org.springframework.ai.chat.prompt.Prompt;
@@ -48,7 +49,7 @@ public class QuestionService {
         logger.info("Asking AI model to reply to question.");
         ChatResponse aiResponse = aiClient.call(prompt);
         logger.info("AI responded.");
-        return aiResponse.getResult().getMetadata().getFinishReason();
+        return aiResponse.getResults().get(0).getOutput().getContent().toString();
     }
 
     private Message getSystemMessage(String message, boolean prompstuff) {
