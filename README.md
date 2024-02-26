@@ -202,6 +202,12 @@ Regarding the data aspect, we have utilized a Technology Radar from ThoughtWorks
 
 About data, we used a Technology Radar from Thoughtwrorks
 
+**Command to run application**
+
+```
+mvn spring-boot:run -Dspring-boot.run.profiles=openai
+```
+
 ### Technology Radar
 
 The Technology Radar is a snapshot of tools, techniques, platforms, languages and frameworks based on the practical experiences of Thoughtworkers around the world. Published twice a year, it provides insights on how the world builds software today. Use it to identify and evaluate what’s important to you.
