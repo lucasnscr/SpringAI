@@ -2,11 +2,10 @@ package com.ai.springdemo.aispringdemo.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.ai.chat.ChatClient;
-import org.springframework.ai.chat.ChatResponse;
-import org.springframework.ai.chat.Generation;
+import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.Message;
 import org.springframework.ai.chat.messages.UserMessage;
+import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.chat.prompt.SystemPromptTemplate;
 import org.springframework.ai.document.Document;
@@ -31,13 +30,14 @@ public class QuestionService {
     @Value("classpath:/prompts/system-chatbot.st")
     private Resource chatbotSystemPromptResource;
 
-    private final ChatClient aiClient;
+    private final ChatClient chatClient;
+
 
     private final VectorStore vectorStore;
 
     @Autowired
-    public QuestionService(ChatClient aiClient, VectorStore vectorStore) {
-        this.aiClient = aiClient;
+    public QuestionService(ChatClient.Builder chatClientBuilder, VectorStore vectorStore) {
+        this.chatClient = chatClientBuilder.build();
         this.vectorStore = vectorStore;
     }
 
@@ -47,9 +47,9 @@ public class QuestionService {
         Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
 
         logger.info("Asking AI model to reply to question.");
-        ChatResponse aiResponse = aiClient.call(prompt);
+        ChatResponse chatResponse = chatClient.prompt(prompt).call().chatResponse();
         logger.info("AI responded.");
-        return aiResponse.getResults().get(0).getOutput().getContent().toString();
+        return chatResponse.getResults().getFirst().getOutput().getContent();
     }
 
     private Message getSystemMessage(String message, boolean prompstuff) {
@@ -68,6 +68,9 @@ public class QuestionService {
 
 
     public String simpleQuestion(String question) {
-            return aiClient.call(question);
+        Message systemMessage = getSystemMessage(question, true);
+        UserMessage userMessage = new UserMessage(question);
+        Prompt prompt = new Prompt(List.of(systemMessage, userMessage));
+        return chatClient.prompt(prompt).call().chatResponse().getResults().getFirst().getOutput().getContent();
     }
 }
