@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/data")
 public class DataController {
 
     private final DataLoadingService dataLoadingService;
@@ -18,7 +17,7 @@ public class DataController {
         this.dataLoadingService = dataLoadingService;
     }
 
-    @PostMapping("/load")
+    @GetMapping("/data-load")
     public ResponseEntity<String> load() {
         try {
             this.dataLoadingService.load();
