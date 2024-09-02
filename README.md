@@ -121,7 +121,7 @@ Vector Database(PGvector)
 </dependency>
 ```
 
-The most recent version of this library is 0.8.0-SNAPSHOT.
+The most recent version of this library is 1.0.0-SNAPSHOT.
 
 After all setup, you need to create your account and API key in one of the chosen clients. In my case [OpenAI Platform](https://platform.openai.com/docs/overview)
 
@@ -162,7 +162,7 @@ docker compose up -d
 In the project for use all Spring IA functionalities you will need add some dependencies: 
 
 ```
-<spring-ai.version>0.8.0-SNAPSHOT</spring-ai.version>
+<spring-ai.version>1.0.0-SNAPSHOT</spring-ai.version>
 
 <dependency>
   <groupId>org.springframework.ai</groupId>
@@ -183,7 +183,7 @@ In the project for use all Spring IA functionalities you will need add some depe
 </dependency>
 ```
 
-We use latest version of library 0.8.0-SNAPSHOT.
+We use latest version of library 1.0.0-SNAPSHOT.
 
 We have divided our approach into two distinct parts: data handling and question processing.
 
